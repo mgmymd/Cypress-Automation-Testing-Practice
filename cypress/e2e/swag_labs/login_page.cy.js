@@ -1,11 +1,12 @@
 /// <reference types="cypress" />
 
 describe('Login page elements', () => {
-    before(() => {cy.visit("https://www.saucedemo.com")});
-    beforeEach(() => {cy.reload()});
+    beforeEach(() => {
+        cy.visit("https://www.saucedemo.com")
+      })
 
     it('Check page elements', () => { 
-        let listElements = ['.login_logo', '[data-test=username]', '[data-test=password]',
+        const listElements = ['.login_logo', '[data-test=username]', '[data-test=password]',
                             '[data-test=login-button]', '#login_credentials', '.login_password'];
 
          for (let i = 0; i < listElements.length; i++) {
@@ -32,8 +33,7 @@ describe('Login page elements', () => {
 })
 
 describe('Login errors', () => {
-    before(() => {cy.visit("https://www.saucedemo.com")});
-    beforeEach(() => {cy.reload()});
+    beforeEach(() => {cy.visit("https://www.saucedemo.com")});
 
     it('No username or password', () => {
         cy.get('[data-test=login-button]').click()
