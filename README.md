@@ -30,4 +30,3 @@
 
 - Refactor the login_page for SauceDemo, as I started practicing with few concepts and using version 3.6.0 of Cypress.
 - Write the test cases and practice BDD.
-- Start Orange HRM tests.

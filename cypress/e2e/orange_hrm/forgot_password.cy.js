@@ -2,6 +2,7 @@ describe('Forgot your password option', () => {
     beforeEach(() => {
         cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
       })
+      
         it('Click on Forgot your password after tried to login', () => {
     // Verify if the Username field exists and enter the correct username
         cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input')
@@ -26,9 +27,9 @@ describe('Forgot your password option', () => {
         cy.get('.orangehrm-card-note > .oxd-text')
             .should('have.text', 'Please enter your username to identify your account to reset your password');
         cy.get('.oxd-icon').should('exist');
-        cy.get('.oxd-label').should('have.text', 'Nombre de usuario');
+        cy.get('.oxd-label').should('have.text', 'Username');
         cy.get('.oxd-input').should('exist');
-        cy.get('.oxd-button--ghost').should('contain', 'Cancelar').debug();
+        cy.get('.oxd-button--ghost').should('contain', 'Cancel').debug();
         cy.get('.oxd-button--secondary').should('contain', 'Reset Password');
 
     // Enter the Username and click on Reset Password
@@ -44,7 +45,7 @@ describe('Forgot your password option', () => {
         cy.get(':nth-child(4) > .oxd-text')
             .should('have.text', 'You can follow that link and select a new password.');
         cy.get('.orangehrm-card-note--background').should('exist');
-        cy.get('.orangehrm-sub-title').should('have.text', 'Nota\: ').debug();
+        cy.get('.orangehrm-sub-title').should('have.text', 'Note\: ').debug();
         cy.get('.orangehrm-card-note--background > :nth-child(2)')
             .should('have.text', 'If the email does not arrive, please contact your OrangeHRM Administrator.');
         cy.get('.orangehrm-copyright-wrapper > :nth-child(1)').should('have.text', 'OrangeHRM OS 5.5');
@@ -61,9 +62,9 @@ describe('Forgot your password option', () => {
         cy.get('.orangehrm-card-note > .oxd-text')
             .should('have.text', 'Please enter your username to identify your account to reset your password');
         cy.get('.oxd-icon').should('exist');
-        cy.get('.oxd-label').should('have.text', 'Nombre de usuario');
+        cy.get('.oxd-label').should('have.text', 'Username');
         cy.get('.oxd-input').should('exist');
-        cy.get('.oxd-button--ghost').should('contain', 'Cancelar').debug();
+        cy.get('.oxd-button--ghost').should('contain', 'Cancel').debug();
         cy.get('.oxd-button--secondary').should('contain', 'Reset Password');
     
     // Enter the Username and click on Reset Password
@@ -79,7 +80,7 @@ describe('Forgot your password option', () => {
         cy.get(':nth-child(4) > .oxd-text')
             .should('have.text', 'You can follow that link and select a new password.');
         cy.get('.orangehrm-card-note--background').should('exist');
-        cy.get('.orangehrm-sub-title').should('have.text', 'Nota\: ').debug();
+        cy.get('.orangehrm-sub-title').should('have.text', 'Note\: ').debug();
         cy.get('.orangehrm-card-note--background > :nth-child(2)')
             .should('have.text', 'If the email does not arrive, please contact your OrangeHRM Administrator.');
         cy.get('.orangehrm-copyright-wrapper > :nth-child(1)').should('have.text', 'OrangeHRM OS 5.5');
@@ -96,9 +97,9 @@ describe('Forgot your password option', () => {
         cy.get('.orangehrm-card-note > .oxd-text')
             .should('have.text', 'Please enter your username to identify your account to reset your password');
         cy.get('.oxd-icon').should('exist');
-        cy.get('.oxd-label').should('have.text', 'Nombre de usuario');
+        cy.get('.oxd-label').should('have.text', 'Username');
         cy.get('.oxd-input').should('exist');
-        cy.get('.oxd-button--ghost').should('contain', 'Cancelar').debug();
+        cy.get('.oxd-button--ghost').should('contain', 'Cancel').debug();
         cy.get('.oxd-button--secondary').should('contain', 'Reset Password');
     
     // Enter the Username and click on Reset Password
@@ -114,7 +115,7 @@ describe('Forgot your password option', () => {
         cy.get(':nth-child(4) > .oxd-text')
             .should('have.text', 'You can follow that link and select a new password.');
         cy.get('.orangehrm-card-note--background').should('exist');
-        cy.get('.orangehrm-sub-title').should('have.text', 'Nota\: ').debug();
+        cy.get('.orangehrm-sub-title').should('have.text', 'Note\: ').debug();
         cy.get('.orangehrm-card-note--background > :nth-child(2)')
             .should('have.text', 'If the email does not arrive, please contact your OrangeHRM Administrator.');
         cy.get('.orangehrm-copyright-wrapper > :nth-child(1)').should('have.text', 'OrangeHRM OS 5.5');
