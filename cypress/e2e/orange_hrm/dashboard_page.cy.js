@@ -5,14 +5,18 @@ describe('Dashboard page I', () => {
         cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
       })
 
-    it('Check page elements - left table', () => {
-    // Log in the account with the correct username and password
+    function login(user, password){
         cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input')
-                .should('exist').type('Admin');
+                .should('exist').type(user);
         cy.get(':nth-child(3) > .oxd-input-group > :nth-child(2) > .oxd-input')
-                .should('exist').type('admin123');
+                .should('exist').type(password);
         cy.get('.oxd-button').click();
         cy.get('.oxd-userdropdown-tab').should('be.visible');
+    }
+
+    it('Check page elements - left table', () => {
+    // Log in the account with the correct username and password
+        login("Admin", "admin123");
 
     // Check menu icons and other elements, click and check if it is possible to access the respective section
         const menuList = ['Admin', 'PIM', 'Leave', 'Time', 'Recruitment', 'My Info', 'Performance',
@@ -46,16 +50,36 @@ describe('Dashboard page I', () => {
 
     it.only('Close the menu and check the icons', () => {
     // Log in the account with the correct username and password
-        cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input')
-                .should('exist').type('Admin');
-        cy.get(':nth-child(3) > .oxd-input-group > :nth-child(2) > .oxd-input')
-                .should('exist').type('admin123');
-        cy.get('.oxd-button').click();
-        cy.get('.oxd-userdropdown-tab').should('be.visible');
+        login('Admin', 'admin123');
 
     // Close the menu and verify it is closed
-    cy.get('.oxd-main-menu-search > .oxd-icon-button').click()
-    cy.get(':nth-child(3) > .oxd-main-menu-item > .oxd-text').should('not.be.visible')
+        cy.get('.oxd-main-menu-search > .oxd-icon-button').click();
+        cy.get(':nth-child(3) > .oxd-main-menu-item > .oxd-text').should('not.be.visible');
+    
+    // Check if the icons are displayed 
+        const itensList = ['.oxd-brand-logo > img', '.oxd-main-menu-search', 
+                ':nth-child(1) > .oxd-main-menu-item', ':nth-child(2) > .oxd-main-menu-item',
+                ':nth-child(3) > .oxd-main-menu-item', ':nth-child(4) > .oxd-main-menu-item',
+                ':nth-child(5) > .oxd-main-menu-item', ':nth-child(6) > .oxd-main-menu-item',
+                ':nth-child(7) > .oxd-main-menu-item', ':nth-child(8) > .oxd-main-menu-item',
+                ':nth-child(9) > .oxd-main-menu-item', ':nth-child(10) > .oxd-main-menu-item',
+                ':nth-child(11) > .oxd-main-menu-item', ':nth-child(12) > .oxd-main-menu-item'];
+    
+        for(let i=0; i<itensList.length; i++){
+            cy.get(itensList[i]).should('exist');
+        }
+    
+    // Verify if it is possible to access each icon and the correct section is displayed, the menu won't be collapsed anymore
+        const titleList = ['System Users'];
+
+        function click_and_validate(itemList, sectionTitle, sectionTextTitle){
+            cy.get(itemList).click()
+            cy.get(sectionTitle).should('contain.text', sectionTextTitle)
+        }
+
+        for(i=0; i<itensList.length; i++){
+            click_and_validate(itensList[i+2], )
+        }
 
     })
 })
