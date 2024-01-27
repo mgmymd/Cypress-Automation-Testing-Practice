@@ -48,7 +48,7 @@ describe('Dashboard page I', () => {
         check_click_validate(12, menuList[11], '.orangehrm-buzz-newsfeed > .oxd-text--card-title', 'Buzz Newsfeed')
     })
 
-    it.only('Close the menu and check the icons', () => {
+    it('Close the menu and check the icons', () => {
     // Log in the account with the correct username and password
         login('Admin', 'admin123');
 
@@ -74,12 +74,20 @@ describe('Dashboard page I', () => {
 
         function click_and_validate(itemList, sectionTitle, sectionTextTitle){
             cy.get(itemList).click()
-            cy.get(sectionTitle).should('contain.text', sectionTextTitle)
-        }
-
-        for(i=0; i<itensList.length; i++){
-            click_and_validate(itensList[i+2], )
-        }
-
+            cy.get(sectionTitle).should('contain.text', sectionTextTitle)   }
+        
+        click_and_validate(itensList[2], '.oxd-table-filter-header-title > .oxd-text', 'System Users');
+        click_and_validate(itensList[3], '.oxd-table-filter-header-title > .oxd-text', 'Employee Information');
+        click_and_validate(itensList[4], '.oxd-table-filter-header-title > .oxd-text', 'Leave List');
+        click_and_validate(itensList[5], '.orangehrm-card-container > .oxd-text--h6', 'Select Employee');
+        click_and_validate(itensList[6], '.oxd-table-filter-header-title > .oxd-text', 'Candidates');
+        click_and_validate(itensList[7], '.orangehrm-edit-employee-content > :nth-child(1) > .oxd-text--h6', 'Personal Details');
+        click_and_validate(itensList[8], '.oxd-table-filter-header-title > .oxd-text', 'Employee Reviews');
+        click_and_validate(itensList[9], ':nth-child(1) > .oxd-sheet > .orangehrm-dashboard-widget-header > .orangehrm-dashboard-widget-name > .oxd-text', 'Time at Work');
+        click_and_validate(itensList[10], '.oxd-table-filter-header-title > .oxd-text', 'Directory');
+        click_and_validate(itensList[11], '.oxd-text--h6', 'Administrator Access');
+        cy.go('back');
+        click_and_validate(itensList[12], '.oxd-table-filter-header-title > .oxd-text', 'Employee Claims')
+        click_and_validate(itensList[13], '.orangehrm-buzz-newsfeed > .oxd-text--card-title', 'News BuzzFeed')
     })
 })
